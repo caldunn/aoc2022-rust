@@ -1,18 +1,11 @@
 use std::collections::HashSet;
-use std::fs::File;
-use std::io::{BufRead, BufReader};
-use std::path::Path;
 
 // Find common item types
 // compartments split into 2 at midpoint of string.
 // a - z -> 1 - 26, A - Z -> 27, 52
 // then sum
 pub fn main() -> std::io::Result<()> {
-    let path = Path::new("./puzzle_inputs/day3/input");
-    let file = File::open(&path)?;
-    let reader = BufReader::new(file);
-    let lines: Vec<String> = reader.lines().filter_map(|s| s.ok()).collect();
-
+    let lines = crate::read_file("day3/input");
     // Part 1;
     let score = lines
         .iter()

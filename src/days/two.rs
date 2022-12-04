@@ -1,7 +1,3 @@
-use std::fs::File;
-use std::io::{prelude::*, BufReader};
-use std::path::Path;
-
 #[derive(Debug, Clone)]
 enum Play {
     Rock,
@@ -69,26 +65,17 @@ impl Round {
 }
 pub fn main() -> std::io::Result<()> {
     println!("Welcome to day 2;");
-    let path = Path::new("./puzzle_inputs/day2/input");
-    let file = File::open(&path).expect("could not open file input");
-    let reader = BufReader::new(file);
-
-    let mut rounds_strat1: Vec<Round> = vec![];
-    let mut rounds_strat2: Vec<Round> = vec![];
-
-    for line in reader.lines() {
-        let line_ref = line.expect("could not parse input line.");
-        rounds_strat1
-            .push(Round::from_space_split_string(&line_ref).expect("unable to parse line"));
-        rounds_strat2.push(Round::part_2_split(&line_ref).expect("unable to parse line"));
-    }
-    let score = rounds_strat1
+    let lines = crate::read_file("day2/input");
+    let score = lines
         .iter()
+        .map(|s| Round::from_space_split_string(s).expect("unable to parse line"))
         .fold(0usize, |acc, round| acc + round.player_score());
 
-    let score2 = rounds_strat2
+    let score2 =lines 
         .iter()
+        .map(|s| Round::part_2_split(s).expect("unable to parse line"))
         .fold(0usize, |acc, round| acc + round.player_score());
+
     println!("SCORES\nStrategy-1: {}\nStrategy-2: {}", score, score2);
     Ok(())
 }
