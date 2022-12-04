@@ -67,7 +67,7 @@ impl Round {
         }
     }
 }
-fn main() -> std::io::Result<()> {
+pub fn main() -> std::io::Result<()> {
     println!("Welcome to day 2;");
     let path = Path::new("./puzzle_inputs/day2/input");
     let file = File::open(&path).expect("could not open file input");

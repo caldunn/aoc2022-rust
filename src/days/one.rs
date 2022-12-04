@@ -9,7 +9,7 @@ use std::path::Path;
 #[derive(Debug, Ord, Eq, PartialEq, PartialOrd)]
 struct Elf(usize);
 
-fn main() -> std::io::Result<()> {
+pub fn main() -> std::io::Result<()> {
     println!("Welcome to day 1;");
     let path = Path::new("./puzzle_inputs/day1_1/input");
     let file = File::open(&path).expect("could not open file input");

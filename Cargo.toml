@@ -11,8 +11,8 @@ name = "aoc"
 path = "src/lib.rs"
 
 [[bin]]
-name = "one"
-path = "src/days/one.rs"
-[[bin]]
-name = "two"
-path = "src/days/two.rs"
+name = "master"
+path = "src/main.rs"
+
+[toolchain]
+channel = "nightly"
