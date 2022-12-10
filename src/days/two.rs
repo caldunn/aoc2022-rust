@@ -71,7 +71,7 @@ pub fn main() -> std::io::Result<()> {
         .map(|s| Round::from_space_split_string(s).expect("unable to parse line"))
         .fold(0usize, |acc, round| acc + round.player_score());
 
-    let score2 =lines 
+    let score2 = lines
         .iter()
         .map(|s| Round::part_2_split(s).expect("unable to parse line"))
         .fold(0usize, |acc, round| acc + round.player_score());

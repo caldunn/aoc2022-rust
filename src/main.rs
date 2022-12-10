@@ -12,6 +12,7 @@ fn main() {
         "5" => days::five::main(),
         "6" => days::six::main(),
         "7" => days::seven::main(),
+        "8" => days::eight::main(),
         _ => days::one::main(),
     }
     .expect("failed");
