@@ -15,6 +15,7 @@ path = "src/main.rs"
 
 [dependencies]
 bitvec = "1.0"
+pathfinding = "4.1.0"
 
 [toolchain]
 channel = "nightly"
