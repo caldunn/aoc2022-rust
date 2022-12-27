@@ -7,7 +7,7 @@ pub fn main() -> std::io::Result<()> {
     let void = map.iter().max_by_key(|(p, _)| p.y).unwrap().0.y;
 
     poor_sand(&mut map, Some(void));
-    let part1 = map
+    let part_1 = map
         .iter()
         .filter(|(_, b)| **b == Block::Sand)
         .collect::<Vec<_>>()
@@ -19,13 +19,13 @@ pub fn main() -> std::io::Result<()> {
         map.insert(Point::new(i, void + 2), Block::Rock);
     }
     poor_sand(&mut map, None);
-    let part2 = map
+    let part_2 = map
         .iter()
         .filter(|(_, b)| **b == Block::Sand)
         .collect::<Vec<_>>()
         .len();
 
-    println!("{}: {}", part1, part2);
+    crate::print_results(part_1, part_2);
 
     Ok(())
 }
